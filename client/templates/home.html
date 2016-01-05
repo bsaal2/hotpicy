@@ -1,0 +1,140 @@
+<template name="home">
+  {{#contentFor "headerButtonLeft"}}
+    <h1>&nbsp;</h1>  
+  {{/contentFor}}
+
+  {{#contentFor "headerTitle"}}
+    <h1 class="title"><img src="/ic_home2.png" />&nbsp;HOTPICY</h1>
+  {{/contentFor}}
+
+  {{#contentFor "headerButtonRight"}}
+    <a class="button" data-ion-popover="_language">
+     <span class="fa fa-bars fa-2x"></span> 
+    </a>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+       <div class="row search-row">
+         
+         <div class="col">
+           <div class="list list-inset search-list">
+              <label class="item item-input home-search-label">
+                <i class="icon ion-search placeholder-icon"></i>
+                {{#if language is 'japanese'}}
+                 {{> esInput index="restaurant_data" placeholder="キーワードを入力" class="search-btn"}}
+                {{else}} 
+                {{> esInput index="restaurant_data" placeholder="Search Restaurants" class="search-btn"}}
+                {{/if}}
+              </label>
+           </div>
+         </div>
+         
+       </div>
+ 
+       {{#if homesearch}}
+         <div class="list search-list1">
+          {{#esEach index="restaurant_data"}} 
+              {{#if language is 'japanese'}}
+                <a class="item item-avatar" href="{{pathFor 'restaurants.detail'}}">
+                  <h2>{{changeJp name_jp}}</h2>
+                  <p>{{changeJp street_jp}},{{changeJp ward_jp}}</p>
+              </a>
+                {{else}}
+                <a class="item item-avatar" href="{{pathFor 'restaurants.detail'}}">
+                  <h2>{{name_en}}</h2>
+                  <p>{{street_en}},{{ward_en}}</p>
+              </a>
+              {{/if}}
+          {{/esEach}}
+
+        {{#ifEsHasNoResults index="restaurant_data"}}
+          {{#if language is 'japanese'}}
+          <div class="no-results text-center">結果が見つかりません！</div>
+          {{else}}
+          <div class="no-results text-center"><h3>No results found!</h3></div>
+          {{/if}}
+        {{/ifEsHasNoResults}}
+
+        {{#ifEsIsSearching index="players"}}
+            <div>Loading...</div>
+        {{/ifEsIsSearching}}
+       
+       </div>
+       {{#if language is 'japanese'}}
+       <h5 class="text-center">検索結果</h5>
+       {{else}}
+       <h5 class="text-center">Result of search</h5>
+       {{/if}}
+       {{else}}
+
+       {{#if language is 'japanese'}}
+       
+       <div class="home-icons">
+        <div class="row first">
+            <div class="col">
+                 <p class="text-center"><a href="{{pathFor 'restaurants' }}"><i class="fa fa-home fa-4x"></i><br/>
+                すべてのレストラン</a></p>
+            </div>
+            <div class="col">
+                 <p class="text-center"><a href="{{pathFor 'loadMap'}}"><i class="fa fa-map-marker fa-4x"></i><br/>
+                 近くのレストラン</a></p>
+            </div>
+            <div class="col">
+                 <p class="text-center"><a href="{{pathFor 'featured'}}"><i class="fa fa-star fa-4x"></i><br/>
+                 注目のレストラン</a></p>
+            </div>
+       </div>  
+       <div class="row second">
+            <div class="col">
+                 <p class="text-center"><a href="{{pathFor'featuredfood'}}"><i class="fa fa-coffee fa-4x"></i><br/>
+                 注目の料理</a></p>
+            </div>
+            <div class="col">
+                 <p class="text-center"><a href="{{pathFor'myfavourite'}}"><i class="fa fa-heart fa-4x"></i><br/>
+                お気に入り</a></p> 
+            </div>
+            <div class="col">
+                 <p class="text-center"><a href="{{pathFor'about'}}"><i class="fa fa-exclamation-circle fa-4x"></i><br/>このアプリについて</a></p>
+            </div>
+       </div>
+      </div> 
+       
+       {{else}}
+       
+       <div class="home-icons">
+        <div class="row first">
+            <div class="col">
+                 <p class="text-center"><a href="{{pathFor 'restaurants' }}"><i class="fa fa-home fa-4x"></i><br/>
+                All Restaurants</a></p>
+            </div>
+            <div class="col">
+                 <p class="text-center"><a href="{{pathFor 'loadMap'}}"><i class="fa fa-map-marker fa-4x"></i><br/>
+                 Near You</a></p>
+            </div>
+            <div class="col">
+                 <p class="text-center"><a href="{{pathFor 'featured'}}"><i class="fa fa-star fa-4x"></i><br/>
+                 Featured Restaurants</a></p>
+            </div>
+       </div>   
+       <div class="row second">
+            <div class="col">
+                 <p class="text-center"><a href="{{pathFor'featuredfood'}}"><i class="fa fa-coffee fa-4x"></i><br/>
+                 Featured Food</a></p>
+            </div>
+            <div class="col">
+                 <p class="text-center"><a href="{{pathFor'myfavourite'}}"><i class="fa fa-heart fa-4x"></i><br/>
+                My Favourite</a></p> 
+            </div>
+            <div class="col">
+                 <p class="text-center"><a href="{{pathFor'about'}}"><i class="fa fa-exclamation-circle fa-4x"></i><br/>About App</a></p>
+            </div>
+            {{data}}
+        </div>
+       </div>
+       {{/if}}
+       {{/if}}
+       <!-- ===================End of if of search ==================== -->
+    {{/ionContent}}
+  {{/ionView}}
+</template>

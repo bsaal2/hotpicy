@@ -1,0 +1,66 @@
+<template name="featuredfood">
+    {{#contentFor "headerButtonLeft"}}
+    {{#if language is 'japanese'}}
+     {{>ionNavBackButton path="home" text="バック"}}
+    {{else}}
+     {{>ionNavBackButton path="home" text="Back"}}
+    {{/if}}
+   {{/contentFor}}
+
+	{{#contentFor "headerTitle"}}
+    {{#if language is 'japanese'}}
+    <h1 class="title">おすすめ</h1>
+    {{else}}
+    <h1 class="title">Featured&nbsp;<span class="icon ion-android-star-half"></span></h1>
+    {{/if}}
+  {{/contentFor}}
+
+  {{#contentFor "headerButtonRight"}}
+   {{#if language is 'japanese'}}
+    <button class="button button-clear" data-ion-popover="_share" ><i class="icon ion-share"></i></button>
+   {{else}}
+    <button class="button button-clear" data-ion-popover="_share" ><i class="icon ion-share"></i></button>
+   {{/if}} 
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent class="padding"}}
+      {{#if restaurants}}
+       {{#each restaurants}}
+       <div class="list card foodList">
+
+          <div class="item item-avatar">
+            <img src="/home.png">
+            
+            {{#if language is 'japanese'}}
+            <h4 class="name">{{changeJp name_jp}}</h4>
+            <p>{{changeJp ward_jp}}, {{changeJp city_jp}}</p>
+            <p>{{telephone}}</p>
+            {{else}}
+            <h4 class="name">{{name_en}}</h4>
+            <p>{{ward_en}}, {{city_en}}</p>
+            <p>{{telephone}}</p>
+            {{/if}}           
+          
+          </div>
+          
+          <div class="item item-body">
+           {{#if language is 'japanese'}}
+            <h4><i class="fa fa-coffee fa-lg"></i>&nbsp;<span>美味しい食べ物</span></h4>
+            <a  class="btn btn-default btn-sm" href="{{pathFor 'foodList'}}"><p>見る食品</p></a>
+           {{else}}
+            <h4><i class="fa fa-coffee fa-lg"></i>&nbsp;<span>Recommended Food</span></h4>
+            <a  class="btn btn-default btn-sm" href="{{pathFor 'foodList'}}"><p>View Food</p></a>
+           {{/if}} 
+          </div>
+
+        </div>
+       {{/each}}
+      
+      {{else}} 
+       {{> spinner}}
+      {{/if}}  
+
+    {{/ionContent}}
+  {{/ionView}}
+</template>

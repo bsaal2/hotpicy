@@ -1,0 +1,257 @@
+
+/*============= whole body==============*/
+a {
+  text-decoration: none;
+  color: #666;
+}
+
+a:hover {
+   text-decoration: none;
+}
+
+
+
+/*========== Home ====================*/
+.search{
+	margin-left: 65px;
+}
+
+.middle{
+  height: 50px;
+}
+
+.col a{
+	color:grey;
+}
+
+/*============= Load Map ===================*/
+.map-container {
+  width: 800px;
+  max-width: 100%;
+  height: 500px;
+}
+
+/*============== Restaurants Details===================*/
+
+.floating-btn{
+  position: fixed;
+     bottom: 50px;
+    right: 5px;
+  z-index: 100;
+  height: 60px;
+  background-color: #EFBF29;
+  width: 60px;
+  border-radius: 50px;
+  text-align: center;
+  padding-top: 15px;
+  color: #FFF;
+  font-size: 30px;
+  font-weight: bold;
+  box-shadow: 1px 1px 7px 1px rgba(0, 0, 0, 0.48);
+
+}
+
+.restaurants-list .item{
+  margin-bottom: 5px;
+}
+
+
+.restaurants-list h4{
+  color: #EF473A;
+}
+
+.home-icons i {
+  color: #3AB1EF;
+}
+
+.home-icons p a {
+  color: #EF473A;
+  font-size: 15px;
+}
+
+/*
+i{
+	 color: #EF473A;
+}
+*/
+p{
+  margin: -1px 7px!important;
+}
+
+.rest-details h4,.feat-details h4,.myfav-details h4,.foodList h4,.restaurants-list h4{
+	color: #EF473A;
+}
+.feat-details,
+.myfav-details,
+.foodList{
+  margin-top: 0 !important;
+}
+.rest-details{
+  margin-top: 0 !important;
+}
+.item-body{
+  padding: 10px !important;
+}
+
+.item, .item h1, .item h2, .item h3, .item h4, .item h5, .item h6, .item p, .item-content, .item-content h1, .item-content h2, .item-content h3, .item-content h4, .item-content h5, .item-content h6, .item-content p{
+   
+	white-space: normal !important;
+}
+
+img {
+  width: 25px;
+  position: relative;
+  top: 6px;
+}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, i, u, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, fieldset, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video{
+    padding: 3px;
+}
+.food-table{
+  border:1px solid !important;
+}
+.food-table td{
+  border-bottom: 1px solid;
+  padding: 5px;
+}
+.item{
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
+h3.back {
+  font-size: 17px;
+  color: #fff;
+  padding: 6px;
+}
+.item p{
+  font-size: 13px !important;
+}
+.home-icons .row{
+  margin: 0 !important;
+}
+.search-list,
+.search-row,
+.restaurant-search-list{
+  margin: 0 !important;
+}
+.restaurants-list a{
+  padding-right: 10px !important;
+}
+
+table td{
+  color:#666;
+  font-size: 14px;
+}
+
+.search-input{
+    height: 38px;
+    top: -2px;
+}
+
+.popover{
+  height: auto !important ;
+  text-align: center;
+}
+
+.share-buttons a{
+ margin-bottom: 5px !important;
+}
+.rest-details h4,
+.foodList h4,.feat-details h4,.myfav-details h4{
+  margin: 5px 0 !important;
+  font-size: 13px !important;
+}
+
+.search-list1{
+ padding: 0 10px !important;
+}
+
+.search-label{
+  margin: 0px !important;
+  margin-top: 5px !important;
+}
+.mylist{
+  top: 90px !important;
+  background: #f5f5f5 !important;
+}
+.feat-list{
+  background: #f5f5f5 !important;
+}
+.item-avatar > img:first-child{
+  left: 5px !important;
+  top: 5px !important;
+  /*position: relative !important;*/
+}
+.name{
+      min-height: 40px !important;
+    padding-left: 50px !important;
+    padding-top: 10px;
+
+}
+.item-avatar{
+  padding-left: 5px !important;
+}
+.item h4{
+  font-size: 14px !important;
+  padding-top: 0 !important;
+  display: flex !important;
+  display: -webkit-flex !important;
+  display: -moz-flex !important;
+  align-items: center !important;
+}
+.tabs{
+      /*height: 32px !important;*/
+}
+.tabs a{
+      display: inline-block !important;
+    /*height: 30px !important;*/
+    /*line-height: 30px !important;*/
+}
+.tabs .tab-item .icon:before{
+  line-height: 30px !important;
+}
+.padding{
+  padding: 5px !important;
+}
+h2{
+  color:red;
+}
+.language-set{
+  padding: 16px !important;
+}
+.lang-btn{
+  width:45px !important;
+}
+body.keyboard-open .platform-android .content.overflow-scroll {
+  bottom: 0px !important;
+}
+.tabs{
+  bottom: 1px!important; 
+}
+.map-row{
+  margin: 0 !important;
+}
+.item.tabs{
+  /*display: block !important;*/
+}
+.home-search-label{
+  padding-top: 2px !important;
+    padding-bottom: 2px !important;
+}
+.food-table td:nth-child(2) {
+    white-space: nowrap;
+}
+
+.list.restaurants-list p {
+    margin: 1px 0 !important;
+}
+.item-avatar > img:first-child, .item-avatar .item-image, .item-avatar .item-content > img:first-child, .item-avatar .item-content .item-image, .item-avatar-left > img:first-child, .item-avatar-left .item-image, .item-avatar-left .item-content > img:first-child, .item-avatar-left .item-content .item-image{
+  border-radius: 0 !important;
+}
+.bar.bar-stable{
+  border-color: rgba(255, 53, 53, 0) !important;
+  height: 47px;
+}
+.bar .button{
+  padding: 3px 8px !important;
+}

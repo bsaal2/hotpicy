@@ -1,0 +1,198 @@
+<template name="featureDetail">
+  {{#contentFor "headerButtonLeft"}}
+    {{#if language is 'japanese'}}
+     {{>ionNavBackButton path="featured" text="バック"}}
+    {{else}}
+    {{>ionNavBackButton path="featured" text="Back"}}
+    {{/if}}
+  {{/contentFor}}
+
+  {{#contentFor "headerTitle"}}
+    {{#if language is 'japanese'}}
+    <h1 class="title">詳細</h1>
+    {{else}}
+    <h1 class="title">Details</h1>
+    {{/if}}
+  {{/contentFor}}
+
+  {{#contentFor "headerButtonRight"}}
+    {{#if language is 'japanese'}}
+    <button class="button button-clear" data-ion-popover="_share" ><i class="icon ion-share"></i>シェア</button>
+   {{else}}
+    <button class="button button-clear" data-ion-popover="_share" ><i class="icon ion-share"></i>Share</button>
+   {{/if}}
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent class="padding"}}
+       <div class="list card feat-details">
+
+          <div class="item item-avatar">
+            <img src="/home.png">
+            
+            {{#if language is 'japanese'}}
+            <h4 class="name"><a href="#" onclick="window.open('http://www.hotpicy.com/mobile/restaurants/?res={{link}}','_system','location=yes')">{{changeJp name_jp}}</a></h4>
+            {{else}}
+            <h4 class="name"><a href="#" onclick="window.open('http://www.hotpicy.com/mobile/restaurants/?res={{link}}','_system','location=yes')">{{name_en}}</a></h4>
+            {{/if}}
+
+            {{#if language is 'japanese'}}
+            <div class="item tabs tabs-secondary tabs-icon-left">
+            <a class="tab-item" href="#" onclick="window.open('http://www.hotpicy.com/mobile/restaurants/?res={{link}}','_system','location=yes')">
+              <i class="icon ion-ios-browsers"></i>詳しい情報をみる
+
+            </a>
+            
+            
+            <a class="tab-item makeFavourite" href="#" data-action="fake">
+              <span class="icon {{favrestura}}"></span>
+              お気に入りに追加
+            </a>
+            
+            <a class="tab-item" href="#" data-ion-popover="_share">
+              <i class="icon ion-share"></i>
+              共有する
+            </a>
+            </div>
+            {{else}}
+            <div class="item tabs tabs-secondary tabs-icon-left">
+            <a class="tab-item" href="#" onclick="window.open('http://www.hotpicy.com/mobile/restaurants/?res={{link}}','_system','location=yes')" >
+              <i class="icon ion-ios-browsers"></i>Visit Site
+            </a>
+            
+            
+            <a class="tab-item makeFavourite" href="#" data-action="fake">
+              <span class="icon {{favrestura}}"></span>
+              Favourite
+            </a>
+            
+            <a class="tab-item" href="#" data-ion-popover="_share">
+              <i class="icon ion-share"></i>
+              Share
+            </a>
+            </div>
+            {{/if}}
+          
+          </div>
+
+          
+            {{#if language is 'japanese'}}
+            <div class="item item-body">  
+            <h4><i class="fa fa-map-marker fa-lg"></i>&nbsp;<span>住所と場所</span></h4>
+             <p>{{changeJp city_jp}},{{changeJp ward_jp}},{{changeJp street_jp}}</p> 
+            </div>
+
+            <div class="item item-body">
+            <h4><i class="fa fa-jpy"></i>&nbsp;<span>平均予算</span></h4>
+            <p>{{changeJp lunch_price}}-{{changeJp dinner_price}}</p>
+            </div>
+
+            <div class="item item-body">
+            <h4><i class="fa fa-clock-o fa-lg"></i>&nbsp;<span>営業時間</span></h4>
+            <p>{{bu_hour}}</p>
+            </div> 
+
+            <div class="item item-body">
+            <h4><i class="fa  fa-arrow-circle-o-right"></i>&nbsp;<span>クーポン</span></h4>
+            {{#each coupon}}
+            <p>{{changeJp coupon_jp}}</p>
+            {{else}}
+            <p>ただ今ご利用いただけるクーポンはありません</p>
+            {{/each}}
+            </div>
+
+            <div class="item item-body">
+            <h4><i class="fa fa-coffee fa-lg"></i>&nbsp;<span>美味しい食べ物</span></h4>
+            <table class="table table-striped food-table" cellpadding="5" cellspacing="0">
+              {{#each recommendedFood}}
+               <tr style="font-size:14px;">
+                 <td>{{changeJp product_jp}}</td>
+                 <td>&yen; {{price}}</td>
+               </tr>
+              {{else}}
+               <tr style="font-size:14px;">
+                 <td>ここには任意の推奨食品</td>
+               </tr> 
+              {{/each}}
+            </table>
+            </div>
+
+
+            <div class="item tabs tabs-secondary tabs-icon-left">
+            <a class="tab-item email" href="#" onclick="window.open('mailto:couppon@hotpicy.com?subject={{combine}}&body={{mail_body}};','_system','location=yes')">
+              <i class="icon ion-email"></i>
+              クーポンを入手
+            </a>
+            <a class="tab-item" href="tel:{{telephone}}">
+              <i class="icon ion-iphone"></i>
+              <a href="tel:{{telephone}}">コール</a>
+            </a>
+            <a class="tab-item" href="#" data-ion-popover="_share">
+              <i class="icon ion-share"></i>
+              共有する
+            </a>
+           </div>
+            
+            {{else}}
+            <div class="item item-body">
+            <h4><i class="fa fa-map-marker fa-lg"></i>&nbsp;<span>Address Location</span></h4>
+            <p>{{city_en}},{{ward_en}},{{street_en}}</p>
+            </div>
+
+            <div class="item item-body">
+            <h4><i class="fa fa-jpy"></i>&nbsp;<span>Budget</span></h4>
+            <p>{{changeJp lunch_price}}-{{changeJp dinner_price}}</p>
+            </div>
+
+            <div class="item item-body">
+            <h4><i class="fa fa-clock-o fa-lg"></i>&nbsp;<span>Bussiness Hour</span></h4>
+            <p>{{bu_hour}}</p>
+            </div>
+
+            <div class="item item-body">
+            <h4><i class="fa  fa-arrow-circle-o-right"></i>&nbsp;<span>Coupon</span></h4>
+            {{#each coupon}}
+            <p>{{coupon_en}}</p>
+            {{else}}
+            <p>No coupon for now.</p>
+            {{/each}}
+            </div>
+
+            <div class="item item-body">
+            <h4><i class="fa fa-coffee fa-lg"></i>&nbsp;<span>Recommended Food</span></h4>
+            <table class="table table-striped food-table" cellpadding="5" cellspacing="0">
+              {{#each recommendedFood}}
+               <tr style="font-size:14px;">
+                 <td>{{product_en}}</td>
+                 <td>&yen; {{price}}</td>
+               </tr>
+              {{else}}
+               <tr style="font-size:14px;">
+                 <td>No any recommended food here.</td>
+               </tr> 
+              {{/each}}
+            </table>
+            </div>
+
+
+            <div class="item tabs tabs-secondary tabs-icon-left">
+            <a class="tab-item email" href="#" onclick="window.open('mailto:couppon@hotpicy.com?subject={{combine}}&body={{mail_body}};','_system','location=yes')">
+              <i class="icon ion-email"></i>
+              Get Coupon
+            </a>
+            <a class="tab-item" href="tel:{{telephone}}">
+              <i class="icon ion-iphone"></i>
+              <a href="tel:{{telephone}}">Call</a>
+            </a>
+            <a class="tab-item" href="#" data-ion-popover="_share">
+              <i class="icon ion-share"></i>
+              Share
+            </a>
+           </div>
+          
+          {{/if}}
+
+        </div>
+    {{/ionContent}}
+  {{/ionView}}
+</template>

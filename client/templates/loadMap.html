@@ -1,0 +1,37 @@
+<template name="loadMap">
+  {{#contentFor "headerButtonLeft"}}
+    {{#if language is 'japanese'}}
+     {{>ionNavBackButton path="home" text="バック"}}
+    {{else}}
+    {{>ionNavBackButton path="home" text="Back"}}
+    {{/if}}
+  {{/contentFor}}
+
+  {{#contentFor "headerTitle"}}
+    {{#if language is 'japanese'}}
+    <h1 class="title">近い場所</h1>
+    {{else}}
+    <h1 class="title">Near Place</h1>
+    {{/if}}
+  {{/contentFor}}
+
+  {{#contentFor "headerButtonRight"}}
+   {{#if language is 'japanese'}}
+    <button class="button button-clear" data-ion-popover="_share" ><i class="icon ion-share"></i></button>
+   {{else}}
+    <button class="button button-clear" data-ion-popover="_share" ><i class="icon ion-share"></i></button>
+   {{/if}} 
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent class="padding"}}
+       <div class="row map-row">
+       	<div class="col">
+       		<div class="map-container">
+       			{{> googleMap name="exampleMap" options=exampleMapOptions}}
+       		</div>
+       	</div>
+       </div>
+    {{/ionContent}}
+  {{/ionView}}
+</template>

@@ -1,0 +1,46 @@
+<template name="_language">
+	{{#ionPopover}}
+    <div class="content padding">
+      <div class="list">
+          <h4><i class="icon ion-gear-b"></i>&nbsp;Language Settings</h4>
+          {{#if language is 'japanese'}}
+           <div class="item language-set">
+           	 <h6>Japanese language is set currently</h6>
+           </div>
+          {{else}} 
+          <div class="item language-set">
+           	 <h6>English language is set currently</h6>
+           </div>
+          {{/if}}
+
+          {{#if language is 'japanese'}}
+          <div class="item item-button-right language-set">
+		    English
+		    <button class="button button-default english lang-btn">
+		      <i class="icon {{checkmarkEn}}"></i>
+		    </button>
+         </div>
+         <div class="item item-button-right language-set">
+		    Japanese
+		    <button class="button button-balanced japanese lang-btn">
+		      <i class="icon {{checkmarkJP}}"></i>
+		    </button>
+         </div>
+         {{else}}
+         <div class="item item-button-right language-set">
+		    English
+		    <button class="button button-balanced english lang-btn">
+		      <i class="icon {{checkmarkEn}}"></i>
+		    </button>
+         </div>
+         <div class="item item-button-right language-set">
+		    Japanese
+		    <button class="button button-default japanese lang-btn">
+		      <i class="icon {{checkmarkJP}}"></i>
+		    </button>
+         </div>
+         {{/if}}
+      </div>
+    </div>
+  {{/ionPopover}}
+</template>

@@ -1,0 +1,57 @@
+<template name="featured">
+  {{#contentFor "headerButtonLeft"}}
+    {{#if language is 'japanese'}}
+     {{>ionNavBackButton path="home" text="バック"}}
+   {{else}}
+    {{>ionNavBackButton path="home" text="Back"}}
+   {{/if}}
+  {{/contentFor}}
+
+  {{#contentFor "headerTitle"}}
+    {{#if language is 'japanese'}}
+    <h1 class="title">おすすめ</h1>
+    {{else}}
+    <h1 class="title">Featured</h1>
+    {{/if}}
+  {{/contentFor}}
+
+  {{#contentFor "headerButtonRight"}}
+   {{#if language is 'japanese'}}
+    <button class="button button-clear" data-ion-popover="_share" ><i class="icon ion-share"></i></button>
+   {{else}}
+    <button class="button button-clear" data-ion-popover="_share" ><i class="icon ion-share"></i></button>
+   {{/if}} 
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent class="padding feat-list"}}
+       
+      {{#if restaurants}}
+      
+       {{#ionList class="restaurants-list"}}
+        {{#each restaurants}}
+          {{#ionItem path="feature.detail" buttonRight=true avatar=true class="item-icon-right"}}
+            <img src="/home.png">
+
+            {{#if language is 'japanese'}}
+            <h4 class="name">{{changeJp name_jp}}</h4>
+            <p><i class="fa fa-phone fa-lg"></i>&nbsp;&nbsp;{{telephone}}</p>
+            <p><i class="fa fa-map-marker fa-lg"></i>{{changeJp city_jp}},{{changeJp ward_jp}},{{changeJp street_jp}}</p>
+            {{else}}
+            <h4 class="name">{{name_en}}</h4>
+            <p><i class="fa fa-phone fa-lg"></i>&nbsp;&nbsp;{{telephone}}</p>
+            <p><i class="fa fa-map-marker fa-lg"></i> {{city_en}},{{ward_en}},{{street_en}}</p>
+            {{/if}}
+
+            <p><i class="fa fa-clock-o fa-lg"></i>&nbsp;{{bu_hour}}</p>
+            <p><i class="fa fa-jpy"></i>&nbsp;{{changeJp lunch_price}}-{{changeJp dinner_price}}</p>
+          {{/ionItem}}
+        {{/each}}
+      {{/ionList}}
+      
+      {{else}} 
+        {{> spinner}}
+      {{/if}}
+    {{/ionContent}}
+  {{/ionView}}
+</template>

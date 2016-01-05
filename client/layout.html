@@ -1,0 +1,11 @@
+<template name="layout">
+  {{#ionBody}}
+    {{> ionNavBar class="bar-assertive"}}
+    {{#ionNavView class="wholebody"}}
+      {{> yield}}
+    {{/ionNavView}}
+    {{#ionFooterBar class="bar-assertive"}}
+      <h1 class="title"><a href="#" onclick="window.open('http://hotpicy.com','_system','location=yes')">hotpicy.com</a></h1>
+    {{/ionFooterBar}}
+  {{/ionBody}}
+</template>

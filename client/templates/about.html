@@ -1,0 +1,60 @@
+<template name="about">
+	{{#if language is 'japanese'}}
+  {{#contentFor "headerButtonLeft"}}
+       {{>ionNavBackButton path="home" text="バック"}}
+  {{/contentFor}}
+
+  {{#contentFor "headerTitle"}}
+       <h1 class="title">私たちに関しては</h1>
+  {{/contentFor}}
+  {{else}}
+	{{#contentFor "headerButtonLeft"}}
+       {{>ionNavBackButton path="home" text="Back"}}
+	{{/contentFor}}
+
+	{{#contentFor "headerTitle"}}
+       <h1 class="title">About Us</h1>
+  {{/contentFor}}
+
+  {{#contentFor "headerButtonRight"}}
+   {{#if language is 'japanese'}}
+    <button class="button button-clear" data-ion-popover="_share" ><i class="icon ion-share"></i></button>
+   {{else}}
+    <button class="button button-clear" data-ion-popover="_share" ><i class="icon ion-share"></i></button>
+   {{/if}} 
+  {{/contentFor}}
+  
+  {{/if}} 
+
+    {{#ionView}}
+       {{#if language is 'japanese'}}
+       
+        {{#ionSubheaderBar}}
+        <h2 class="title">我々のアプリの詳細</h2>
+       {{/ionSubheaderBar}}
+      
+       {{#ionContent class="padding"}} 
+         <p> HOTPICY.COM日本は我々はすべての人にカレー店を紹介します、日本、インド、ネパール、あなたが知りたい思いから、皆様に本物の南アジアの料理を食べたいです。のようなお店、その多くは、インドやネパールなど南アジアなどの国から来た人です。過去、言語や文化の違いに苦しんでいる人々の多くは、それが適切なサービスを提供することはできません、またどんなケンショップ、折り畳まれている。</p>
+        
+         <p>このような背景から、誰もが5つの項目（1味、2、上の店、HOTPICY.COMを訪問した後、食品の味やサービスなどの品質向上、のための各レストランでの現在の場所、に基づいています。店舗の雰囲気、3価格4サービスは、あなたに5料理の量）の評価をお願いいたします。また、すべての人のお店へのコメントや評価などのアクセス数に基づいて、私は、各ストアのランキングを掲載します。</p>
+        
+         <p>彼らは上のフィードバックとして、各店舗の店長や従業員などに移動され、全体の店の料理とサービスを反映していきます。みんなと一緒にお店を作成するために移動し、私は本格的な料理を紹介したいと思い、これが私たちの使命である、それが願いです。</p> 
+           
+       {{/ionContent}}
+       
+       {{else}}
+       {{#ionSubheaderBar}}
+        <h2 class="title">Details about our app</h2>
+       {{/ionSubheaderBar}}
+      
+       {{#ionContent class="padding"}} 
+         <p>HOTPICY.COM the Japanese would like you to eat the cuisine of authentic South Asia to everyone, from the thought that want to know, Japan Indian-Nepalese, we will introduce the to everyone curry shop. Its Many of the shops, such as, is the people who came from countries such as South Asia such as India and Nepal. past, a lot of people suffering in the language and cultural differences, it is not possible to provide an appropriate service, what Ken also shops and has been folded.</p> 
+        
+         <p>Based on such a background, the present site, in each restaurant, for quality improvement, such as taste and service of food, after which everyone visited the shop, HOTPICY.COM on, five items (1. taste, 2. shop atmosphere, 3. price, 4. service, thank you the assessment of the 5. The amount of cooking). In addition, comments and evaluation to everyone shops, etc. based on the number of access, I will post the ranking of each store.</p>
+        
+         <p>They are over go to such as store managers and employees of each store as feedback, will continue to reflect the cuisine and service of the entire shop. Go to create a shop along with everyone, and I would like to introduce the authentic cuisine, this is our is a mission, it is desire.</p> 
+           
+       {{/ionContent}}
+       {{/if}}
+    {{/ionView}}
+</template>

@@ -1,0 +1,61 @@
+<template name="foodList">
+   {{#contentFor "headerButtonLeft"}}
+    {{#if language is 'japanese'}}
+     {{>ionNavBackButton path="featuredfood" text="バック"}}
+    {{else}}
+     {{>ionNavBackButton path="featuredfood" text="Back"}}
+    {{/if}}
+   {{/contentFor}}
+
+	{{#contentFor "headerTitle"}}
+    {{#if language is 'japanese'}}
+    <h1 class="title">アイテム</h1>
+    {{else}}
+    <h1 class="title">Items</h1>
+    {{/if}}
+  {{/contentFor}}
+
+  {{#contentFor "headerButtonRight"}}
+   {{#if language is 'japanese'}}
+    <button class="button button-clear" data-ion-popover="_share" ><i class="icon ion-share"></i></button>
+   {{else}}
+    <button class="button button-clear" data-ion-popover="_share" ><i class="icon ion-share"></i></button>
+   {{/if}} 
+  {{/contentFor}}
+
+  {{#ionView}}
+   {{#ionSubheaderBar}}
+        {{#if language is 'japanese'}}
+          <h2 class="title">私たちの美味しい食べ物</h2>
+        {{else}}
+         <h2 class="title">Our Recommended Food</h2>
+        {{/if}}
+   {{/ionSubheaderBar}}
+
+    {{#ionContent class="padding feat-list"}}
+       {{#ionList class="restaurants-list"}}
+        {{#each featuredFood}}
+          {{#ionItem buttonRight=true avatar=true class="item-icon-right"}}
+            <img src="/home.png">
+
+            {{#if language is 'japanese'}}
+            <h4 class="name">{{changeJp product_jp}}</h4>
+            <p>Price:&nbsp; <i>&yen;{{price}}</i></p>
+            {{else}}
+            <h4 class="name">{{product_en}}</h4>
+            <p>Price:&nbsp; <i>&yen;{{price}}</i></p>
+            {{/if}}
+          {{/ionItem}}
+
+        {{else}}
+         {{#if language is 'japanese'}}
+          <h2>全ての推奨食品をなし</h2> 
+         {{else}}
+         <h2>No any recommended food</h2>  
+         {{/if}}
+        {{/each}}
+      {{/ionList}}
+    {{/ionContent}}
+  {{/ionView}}
+
+</template>

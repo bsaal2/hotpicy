@@ -1,0 +1,116 @@
+<template name="restaurants">
+  {{#contentFor "headerButtonLeft"}}
+   {{#if language is 'japanese'}}
+     {{>ionNavBackButton path="home" text="バック"}}
+   {{else}}
+    {{>ionNavBackButton path="home" text="Back"}}
+   {{/if}} 
+  {{/contentFor}}
+
+  {{#contentFor "headerTitle"}}
+    {{#if language is 'japanese'}}
+    <h1 class="title">レストラン</h1>
+    {{else}}
+    <h1 class="title">Restaurants</h1>
+    {{/if}}
+  {{/contentFor}}
+
+  {{#contentFor "headerButtonRight"}}
+   {{#if language is 'japanese'}}
+    <button class="button button-clear" data-ion-popover="_share" ><i class="icon ion-share"></i></button>
+   {{else}}
+    <button class="button button-clear" data-ion-popover="_share" ><i class="icon ion-share"></i></button>
+   {{/if}} 
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionSubheaderBar}} 
+            {{#if language is 'japanese'}}
+                 <label class="item item-input search-input search-label">
+                 <i class="icon ion-search placeholder-icon"></i> 
+                 {{> esInput index="restaurant_data" placeholder="検索のレストラン" class="search-button"}}
+                 </label>
+            {{else}} 
+                 <label class="item item-input search-input search-label">
+                 <i class="icon ion-search placeholder-icon"></i>
+                {{> esInput index="restaurant_data" placeholder="Search Restaurants" class="search-button"}}
+                </label>
+            {{/if}} 
+    {{/ionSubheaderBar}}
+
+    {{#ionContent class="padding mylist"}}
+     
+     <!-- ================== For search options============= -->
+      {{#if search}} 
+       {{#ionList class="restaurants-list restaurant-search-list"}}
+          {{#esEach index="restaurant_data"}}
+            {{#ionItem path="restaurants.detail" buttonRight=true avatar=true class="item-icon-right"}}
+              <img src="/home.png">
+              
+              {{#if language is 'japanese'}}
+                <h4 class="name">{{changeJp name_jp}}</h4>
+                <p><i class="fa fa-phone fa-lg"></i>&nbsp;&nbsp;{{telephone}}</p>
+                <p><i class="fa fa-map-marker fa-lg"></i>&nbsp;&nbsp;{{changeJp city_jp}},{{changeJp ward_jp}},{{changeJp street_jp}}</p>
+                {{else}}
+                <h4 class="name">{{name_en}}</h4>
+                <p><i class="fa fa-phone fa-lg"></i>&nbsp;&nbsp;{{telephone}}</p>
+                <p><i class="fa fa-map-marker fa-lg"></i>&nbsp;&nbsp;{{city_en}},{{ward_en}},{{street_en}}</p>
+              {{/if}}
+             
+              <p><i class="fa fa-clock-o fa-lg"></i>&nbsp;{{bu_hour}}</p>
+            <p><i class="fa fa-jpy"></i>&nbsp;{{changeJp lunch_price}}-{{changeJp dinner_price}}</p>
+            {{/ionItem}}
+          {{/esEach}}
+
+        {{#ifEsHasNoResults index="restaurant_data"}}
+          {{#if language is 'japanese'}}
+          <div class="no-results text-center">結果が見つかりません！</div>
+          {{else}}
+          <div class="no-results text-center"><h3>No results found!</h3></div>
+          {{/if}}
+        {{/ifEsHasNoResults}}
+
+        {{#ifEsIsSearching index="players"}}
+            <div>Loading...</div>
+        {{/ifEsIsSearching}}
+       
+       {{/ionList}}
+       {{#if language is 'japanese'}}
+       <h5 class="text-center">検索結果</h5>
+       {{else}}
+       <h5 class="text-center">Result of search</h5>
+       {{/if}} 
+      {{else}} 
+     <!-- ===================End of search ========================== --> 
+     {{#if restaurants}}
+       {{#ionList class="restaurants-list"}}
+        {{#each restaurants}}
+          {{#ionItem path="restaurants.detail" buttonRight=true avatar=true class="item-icon-right"}}
+            <img src="/home.png">
+             {{jp_data}}
+            {{#if language is 'japanese'}}
+            <h4 class="name">{{changeJp name_jp}}</h4>
+            <p><i class="fa fa-phone fa-lg"></i>&nbsp;&nbsp;{{telephone}}</p>
+            <p><i class="fa fa-map-marker fa-lg"></i>&nbsp;&nbsp;{{changeJp city_jp}},{{changeJp ward_jp}},{{changeJp street_jp}}</p>
+            {{else}}
+            <h4 class="name">{{name_en}}</h4>
+            <p><i class="fa fa-phone fa-lg"></i>&nbsp;&nbsp;{{telephone}}</p>
+            <p><i class="fa fa-map-marker fa-lg"></i>&nbsp;&nbsp;{{city_en}},{{ward_en}},{{street_en}}</p>
+            {{/if}}
+
+            <p><i class="fa fa-clock-o fa-lg"></i>&nbsp;{{bu_hour}}</p>
+            <p><i class="fa fa-jpy"></i>&nbsp;{{changeJp lunch_price}}-{{changeJp dinner_price}}</p>
+          {{/ionItem}}
+        {{/each}}
+      {{/ionList}}
+      
+      {{else}}
+       {{> spinner}}
+     {{/if}}
+
+     {{/if}}
+     <!-- ===================End of if ofsearch ==================== -->
+    
+    {{/ionContent}}
+  {{/ionView}}
+</template>
